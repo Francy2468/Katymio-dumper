@@ -24,7 +24,6 @@ env/
 !.env.example
 
 # Tests
-tests/
 pytest.ini
 .pytest_cache/
 
