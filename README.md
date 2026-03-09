@@ -12,13 +12,21 @@ Discord bot que deobfusca y analiza scripts Lua/Luau obfuscados con seguridad me
 
 ## 📋 Requisitos
 
+### Python
 - Python 3.10+
+- Lua 5.1+ o LuaJIT
+- Discord Bot Token
+
+### Node.js
+- Node.js 18+
 - Lua 5.1+ o LuaJIT
 - Discord Bot Token
 
 ## 🔧 Instalación Local
 
-### Linux/macOS
+Puedes ejecutar el bot localmente con **Python** o con **Node.js**. Ambas versiones implementan exactamente las mismas funcionalidades.
+
+### 🐍 Python – Linux/macOS
 
 ```bash
 # 1. Clonar el repositorio
@@ -34,7 +42,7 @@ cp .env.example .env
 # Editar .env y agregar tu DISCORD_TOKEN
 ```
 
-### Windows
+### 🐍 Python – Windows
 
 ```powershell
 # 1. Clonar el repositorio
@@ -49,6 +57,45 @@ pip install -r requirements.txt
 # 4. Configurar variables de entorno
 copy .env.example .env
 # Editar .env y agregar tu DISCORD_TOKEN
+```
+
+### 🟢 Node.js – Linux/macOS
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/Francy2468/Katymio-dumper.git
+cd Katymio-dumper
+
+# 2. Ejecutar script de setup (instala Lua y dependencias npm)
+chmod +x setup-node.sh
+./setup-node.sh
+
+# 3. Configurar variables de entorno
+cp .env.example .env
+# Editar .env y agregar tu DISCORD_TOKEN
+
+# 4. Iniciar el bot
+node bot.js
+```
+
+### 🟢 Node.js – Windows
+
+```powershell
+# 1. Clonar el repositorio
+git clone https://github.com/Francy2468/Katymio-dumper.git
+cd Katymio-dumper
+
+# 2. Instalar Lua (descargar de lua.org)
+
+# 3. Instalar dependencias Node.js
+npm install
+
+# 4. Configurar variables de entorno
+copy .env.example .env
+# Editar .env y agregar tu DISCORD_TOKEN
+
+# 5. Iniciar el bot
+node bot.js
 ```
 
 ## 🐳 Deployment con Docker
@@ -136,15 +183,19 @@ Los archivos peligrosos son **bloqueados automáticamente** y se genera una aler
 
 ```
 Katymio-dumper/
-├── bot.py              # Bot principal de Discord
-├── scanner.py          # Escáner de seguridad
+├── bot.py              # Bot principal de Discord (Python)
+├── scanner.py          # Escáner de seguridad (Python)
+├── bot.js              # Bot principal de Discord (Node.js)
+├── scanner.js          # Escáner de seguridad (Node.js)
 ├── dumper.lua          # Script Lua deobfuscador
 ├── requirements.txt    # Dependencias Python
+├── package.json        # Dependencias Node.js
 ├── Dockerfile          # Configuración Docker
 ├── docker-compose.yml  # Orquestación Docker
 ├── Procfile            # Configuración Railway/Heroku
 ├── railway.toml        # Configuración Railway
-├── setup.sh            # Script de instalación
+├── setup.sh            # Script de instalación (Python)
+├── setup-node.sh       # Script de instalación (Node.js)
 ├── .env.example        # Template de variables de entorno
 └── tests/              # Tests unitarios
     ├── test_bot.py
